@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pritesh Mahajan | Quality Engineering Portfolio</title>
+<title>Pritesh Mahajan | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,14 +11,23 @@
 <style>
 :root {
   --bg: #f8fafc;
-  --card: #ffffff;
+  --card: rgba(255,255,255,0.7);
   --text: #0f172a;
   --accent: #2563eb;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: rgba(30,41,59,0.7);
+    --text: #f1f5f9;
+    --accent: #3b82f6;
+  }
+}
+
 body.dark {
   --bg: #0f172a;
-  --card: #1e293b;
+  --card: rgba(30,41,59,0.7);
   --text: #f1f5f9;
   --accent: #3b82f6;
 }
@@ -32,129 +41,127 @@ body.dark {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--bg);
+  background: linear-gradient(-45deg,#2563eb,#1e3a8a,#0f172a,#3b82f6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: var(--text);
-  transition: 0.3s ease;
+}
+
+@keyframes gradientBG {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 nav {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(10px);
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.2);
   z-index: 1000;
 }
 
-body.dark nav {
-  background: rgba(15,23,42,0.8);
-}
-
 nav a {
+  color: white;
   text-decoration: none;
-  color: var(--text);
   margin-left: 20px;
   font-weight: 500;
 }
 
-nav a:hover {
-  color: var(--accent);
-}
-
 .section {
-  padding: 80px 20px;
+  padding: 120px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.glass.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero {
   text-align: center;
-  padding-top: 100px;
 }
 
 .hero img {
   width: 160px;
   border-radius: 50%;
-  border: 5px solid var(--accent);
+  border: 5px solid white;
   margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 40px;
+  color: white;
 }
 
 .typing {
-  color: var(--accent);
-  font-weight: 600;
+  color: #e0f2fe;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 20px;
+  margin: 15px 10px;
   padding: 10px 20px;
   border-radius: 30px;
-  background: var(--accent);
-  color: white;
+  background: white;
+  color: #2563eb;
   text-decoration: none;
-  margin-right: 10px;
+  font-weight: 600;
   transition: 0.3s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-}
-
-.card {
-  background: var(--card);
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
 .skill-bar {
   margin-bottom: 15px;
 }
 
-.skill-bar span {
-  font-weight: 500;
-}
-
 .progress {
-  background: #e2e8f0;
   height: 8px;
   border-radius: 20px;
-  margin-top: 5px;
+  background: rgba(255,255,255,0.3);
   overflow: hidden;
+  margin-top: 5px;
 }
 
 .progress div {
   height: 100%;
-  background: var(--accent);
+  background: #fff;
   width: 0;
-  transition: width 1.5s ease;
+  transition: width 2s ease;
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 20px;
 }
 
 footer {
   text-align: center;
   padding: 40px;
-  font-size: 14px;
+  color: white;
 }
 </style>
 </head>
@@ -162,10 +169,9 @@ footer {
 <body>
 
 <nav>
-  <div><strong>Pritesh Mahajan</strong></div>
+  <div style="color:white;font-weight:600;">Pritesh Mahajan</div>
   <div>
     <a href="#about">About</a>
-    <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
@@ -173,82 +179,65 @@ footer {
   </div>
 </nav>
 
-<section class="hero">
-  <img src="profile.jpg" alt="Profile">
-  <h1>PRITESH JAYANAND MAHAJAN</h1>
+<section class="section hero">
+  <img src="profile.jpg">
+  <h1>PRITESH MAHAJAN</h1>
   <div class="typing" id="typing"></div>
-  <br>
-  <a href="resume.pdf" download class="btn"><i class="fas fa-download"></i> Download Resume</a>
-  <a href="YOUR_LINKEDIN_URL" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <a href="resume.pdf" download class="btn"><i class="fas fa-download"></i> Resume</a>
+  <a href="https://www.linkedin.com/in/pritesh-mahajan-987045215/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <a href="https://github.com/PriteshMahajan143" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
 </section>
 
 <section id="about" class="section">
-  <div class="card">
+  <div class="glass">
     <h2>About Me</h2>
-    <p>Results-driven Quality Engineering Analyst with 5 years of experience in automation, QA, and performance testing. Reduced manual testing effort by 50%, increased coverage to 90%, and cut defects by 30%.</p>
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <div class="card">
-    <h2>Experience</h2>
-    <h3>Accenture Solutions Pvt Ltd</h3>
-    <p>Quality Engineering Analyst (2021 – Present)</p>
-    <ul>
-      <li>Built scalable Playwright & Selenium frameworks</li>
-      <li>Integrated CI/CD automation pipelines</li>
-      <li>Led performance testing using JMeter</li>
-      <li>Mentored junior automation engineers</li>
-    </ul>
+    <p>Quality Engineering Analyst with 5+ years experience. Reduced manual testing 50%, increased coverage to 90%, reduced defects 30%. Expert in Playwright, Selenium, CI/CD, Performance Testing.</p>
   </div>
 </section>
 
 <section id="skills" class="section">
-  <div class="card">
+  <div class="glass">
     <h2>Technical Skills</h2>
 
     <div class="skill-bar">
-      <span>Playwright / Selenium</span>
-      <div class="progress"><div style="width:90%"></div></div>
+      Playwright / Selenium
+      <div class="progress"><div data-width="90%"></div></div>
     </div>
 
     <div class="skill-bar">
-      <span>JavaScript / Java</span>
-      <div class="progress"><div style="width:85%"></div></div>
+      JavaScript / Java
+      <div class="progress"><div data-width="85%"></div></div>
     </div>
 
     <div class="skill-bar">
-      <span>CI/CD & DevOps</span>
-      <div class="progress"><div style="width:80%"></div></div>
-    </div>
-
-    <div class="skill-bar">
-      <span>Performance Testing</span>
-      <div class="progress"><div style="width:75%"></div></div>
+      CI/CD
+      <div class="progress"><div data-width="80%"></div></div>
     </div>
 
   </div>
 </section>
 
 <section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="project-grid">
-    <div class="card">
-      <h3>RFID Petrol System</h3>
-      <p>Automated fuel dispensing using RFID technology.</p>
-    </div>
-    <div class="card">
-      <h3>NFC Development</h3>
-      <p>Secure wireless communication project sponsored by L&T Infotech.</p>
+  <div class="glass">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div>
+        <h3>RFID Petrol System</h3>
+        <p>Automated fuel dispensing using RFID.</p>
+      </div>
+      <div>
+        <h3>NFC Development</h3>
+        <p>Secure wireless communication project.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="contact" class="section">
-  <div class="card">
+  <div class="glass">
     <h2>Contact</h2>
-    <p>Email: priteshmahajan13@gmail.com</p>
-    <p>Location: Mumbai, India</p>
+    <p><i class="fas fa-envelope"></i> priteshmahajan13@gmail.com</p>
+    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
   </div>
 </section>
 
@@ -257,41 +246,33 @@ footer {
 </footer>
 
 <script>
-function toggleDark() {
+function toggleDark(){
   document.body.classList.toggle("dark");
 }
 
-const roles = ["Quality Engineering Analyst", "Automation Specialist", "Playwright Expert", "CI/CD Enthusiast"];
-let index = 0;
-let charIndex = 0;
-let currentText = "";
-let isDeleting = false;
-
-function type() {
-  const typingElement = document.getElementById("typing");
-  const fullText = roles[index];
-
-  if (isDeleting) {
-    currentText = fullText.substring(0, charIndex--);
-  } else {
-    currentText = fullText.substring(0, charIndex++);
-  }
-
-  typingElement.textContent = currentText;
-
-  if (!isDeleting && charIndex === fullText.length) {
-    isDeleting = true;
-    setTimeout(type, 1000);
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    index = (index + 1) % roles.length;
-    setTimeout(type, 500);
-  } else {
-    setTimeout(type, isDeleting ? 50 : 100);
-  }
+const roles=["Automation Engineer","Playwright Specialist","CI/CD Enthusiast","Performance Tester"];
+let i=0,j=0,current="",deleting=false;
+function type(){
+  const el=document.getElementById("typing");
+  const full=roles[i];
+  current=deleting?full.substring(0,j--):full.substring(0,j++);
+  el.textContent=current;
+  if(!deleting && j===full.length){deleting=true;setTimeout(type,1000);}
+  else if(deleting && j===0){deleting=false;i=(i+1)%roles.length;}
+  setTimeout(type,deleting?50:100);
 }
-
 type();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      const bars=entry.target.querySelectorAll("[data-width]");
+      bars.forEach(bar=>{bar.style.width=bar.getAttribute("data-width");});
+    }
+  });
+});
+document.querySelectorAll(".glass").forEach(el=>observer.observe(el));
 </script>
 
 </body>
