@@ -3,64 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Pritesh Mahajan | Resume</title>
-    <div class="profile-container">
-    <img src="profile.jpg" alt="Pritesh Mahajan" class="profile-pic">
-    </div>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .profile-container {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #e5e7eb;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            margin-bottom: 5px;
-            color: #1f2937;
+            max-width: 950px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        h2 {
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
             border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #2563eb;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        h1 {
+            font-size: 28px;
             color: #111827;
         }
 
         .contact {
             font-size: 14px;
-            color: #555;
+            color: #4b5563;
+            margin-top: 5px;
         }
 
-        .section {
-            margin-top: 15px;
+        h2 {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1e3a8a;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            width: 50px;
+            height: 3px;
+            background: #2563eb;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            border-radius: 2px;
+        }
+
+        p {
+            color: #374151;
+            margin-bottom: 15px;
         }
 
         ul {
@@ -69,41 +92,65 @@
 
         li {
             margin-bottom: 8px;
+            color: #374151;
         }
 
         .job-title {
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 16px;
+            color: #111827;
         }
 
         .company {
-            font-weight: bold;
+            font-weight: 500;
+            color: #2563eb;
         }
 
         .date {
-            float: right;
-            font-style: italic;
             font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .skills span {
-            display: inline-block;
-            background: #e5e7eb;
-            padding: 6px 10px;
-            margin: 5px 5px 0 0;
-            border-radius: 20px;
+            background: #e0e7ff;
+            color: #1e3a8a;
+            padding: 8px 14px;
+            border-radius: 30px;
             font-size: 13px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            cursor: default;
+        }
+
+        .skills span:hover {
+            background: #2563eb;
+            color: white;
+            transform: scale(1.05);
         }
 
         .footer {
             margin-top: 40px;
             font-size: 14px;
+            color: #4b5563;
         }
 
         @media (max-width: 600px) {
-            .date {
-                float: none;
-                display: block;
-                margin-top: 5px;
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 22px;
             }
         }
     </style>
@@ -112,34 +159,36 @@
 <body>
 <div class="container">
 
-    <h1>Pritesh Jayanand Mahajan</h1>
-    <div class="contact">
-        Email: priteshmahajan13@gmail.com | 
-        Contact: +91-9769854190 | 
-        Location: Mumbai, India
+    <div class="header">
+        <img src="profile.jpg" alt="Pritesh Mahajan" class="profile-pic">
+        <div>
+            <h1>Pritesh Jayanand Mahajan</h1>
+            <div class="contact">
+                📧 priteshmahajan13@gmail.com |
+                📱 +91-9769854190 |
+                📍 Mumbai, India
+            </div>
+        </div>
     </div>
 
     <h2>Professional Summary</h2>
     <p>
-        Results-driven Quality Engineering Analyst with 5 years of experience in test automation, 
-        quality assurance, and software testing. Expertise in Playwright, Selenium, and AI-driven automation. 
-        Proven ability to reduce testing efforts by 50%, optimize test coverage, and mentor teams. 
-        Passionate about delivering high-quality software solutions.
+        Results-driven Quality Engineering Analyst with 5 years of experience in test automation,
+        quality assurance, and software testing. Expertise in Playwright, Selenium, and AI-driven automation.
+        Proven ability to reduce testing efforts by 50%, optimize test coverage, and mentor teams.
     </p>
 
     <h2>Work Experience</h2>
-    <div class="section">
+    <div>
         <div class="job-title">Quality Engineering Analyst</div>
         <div class="company">Accenture Solutions Private Limited</div>
         <div class="date">Jan 2021 – Present</div>
         <ul>
-            <li>Designed and maintained automated test cases using Playwright and Selenium, reducing manual testing efforts by 50%.</li>
-            <li>Built reusable automation frameworks and centralized Test Automation Repository.</li>
-            <li>Expanded automation coverage from 60% to 90% improving release quality.</li>
+            <li>Reduced manual testing effort by 50% using Playwright & Selenium automation.</li>
+            <li>Expanded automation coverage from 60% to 90%.</li>
             <li>Reduced post-release defects by 30% through early issue detection.</li>
-            <li>Conducted performance testing using Apache JMeter.</li>
-            <li>Integrated automation into CI/CD pipelines using Agile and DevOps practices.</li>
-            <li>Mentored junior testers and conducted knowledge-sharing sessions.</li>
+            <li>Integrated automation into CI/CD pipelines.</li>
+            <li>Mentored junior testers and conducted technical sessions.</li>
         </ul>
     </div>
 
@@ -152,48 +201,22 @@
         <span>Selenium</span>
         <span>Postman</span>
         <span>Apache JMeter</span>
-        <span>WCAG</span>
         <span>Google Cloud</span>
         <span>GitHub Copilot</span>
         <span>CI/CD</span>
         <span>JIRA</span>
     </div>
 
-    <h2>Certifications</h2>
-    <ul>
-        <li>Vskills Certified Selenium Professional</li>
-        <li>Vskills Certified Automation Tester using Java</li>
-        <li>GitHub Copilot Certified</li>
-        <li>Google Cloud Associate Cloud Engineer (In Progress)</li>
-    </ul>
-
     <h2>Education</h2>
     <ul>
-        <li><strong>B.E. in Electronics and Telecommunication Engineering</strong> – VESIT, Mumbai (2017 – 2020) | CGPA: 7.35</li>
-        <li><strong>Diploma in Electronics Engineering</strong> – VES Polytechnic, Mumbai (2014 – 2017) | 79.24%</li>
-        <li><strong>ICSE Board</strong> – Pawar Public School, Mumbai (2013 – 2014) | 88.8%</li>
-    </ul>
-
-    <h2>Projects</h2>
-    <ul>
-        <li><strong>RFID-Based Prepaid Card Petrol Dispensing System</strong> – Automated fuel dispensing using RFID technology.</li>
-        <li><strong>Design and Development of NFC</strong> – Sponsored by L&T Infotech, focused on secure wireless communication.</li>
-    </ul>
-
-    <h2>Internship</h2>
-    <p><strong>Selec Controls Pvt. Ltd.</strong> (July 2017 – August 2017)</p>
-
-    <h2>Hobbies & Interests</h2>
-    <ul>
-        <li>Playing Badminton</li>
-        <li>Watching Movies</li>
-        <li>Playing Video Games</li>
+        <li><strong>B.E. Electronics & Telecommunication</strong> – Mumbai (2017–2020)</li>
+        <li><strong>Diploma in Electronics</strong> – Mumbai (2014–2017)</li>
     </ul>
 
     <div class="footer">
         <h2>Declaration</h2>
-        <p>I hereby declare that the above information is correct to the best of my knowledge and belief.</p>
-        <p><strong>(Pritesh J. Mahajan)</strong></p>
+        <p>I hereby declare that the above information is correct to the best of my knowledge.</p>
+        <p><strong>– Pritesh J. Mahajan</strong></p>
     </div>
 
 </div>
